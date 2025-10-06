@@ -53,7 +53,7 @@ app.use((req, res) => {
   try {
     await legoData.initialize();
     app.listen(HTTP_PORT, () => {
-      console.log(`Server listening on port ${HTTP_PORT}`);
+      console.log(`Server running at http://localhost:${HTTP_PORT}`);
     });
   } catch (err) {
     console.error("Failed to initialize Lego data:", err);

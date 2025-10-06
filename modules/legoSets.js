@@ -1,12 +1,12 @@
 /********************************************************************************
-*  WEB700 – Assignment 02
+*  WEB700 – Assignment 03
 * 
 *  I declare that this assignment is my own work in accordance with Seneca's
 *  Academic Integrity Policy:
 * 
 *  https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
 * 
-*  Name: Anmoldeep Singh Student ID: 139671242 Date: 26/09/2025
+*  Name: Anmoldeep Singh Student ID: 139671242 Date: 06/010/2025
 *
 ********************************************************************************/
 
@@ -18,8 +18,8 @@ class legoData {
     initialize() {
         return new Promise((resolve, reject) => {
             try {
-                const setData = require("./data/setData");
-                const themeData = require("./data/themeData");
+                const setData = require("../Data/SetData.json");
+                const themeData = require("../Data/themeData.json");
                     
                 this.sets = [];
                  
@@ -80,33 +80,3 @@ class legoData {
 }
 
 module.exports = legoData;
-
-const LegoData = legoData 
-const db = new LegoData();
-
-db.initialize()
-    .then(() => {
-        console.log("Initialization complete ✅\n");
-
-        // Test getAllSets()
-        return db.getAllSets();
-    })
-    .then(allSets => {
-        console.log("All Sets Count:", allSets.length);
-
-        // Test getSetByNum()
-        return db.getSetByNum("001-1");
-    })
-    .then(set => {
-        console.log("Set 001-1:", set);
-
-        // Test getSetsByTheme()
-        return db.getSetsByTheme("tech");
-    })
-    .then(techSets => {
-        console.log("\nTechnic Sets:", techSets);
-    })
-    .catch(err => {
-        console.error("Error:", err);
-    });
-
